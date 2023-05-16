@@ -27,7 +27,7 @@ public class CategoryRestController {
     }
 
     @CrossOrigin
-    @PostMapping(value = "categories", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/categories", produces = "application/json", consumes = "application/json")
     ResponseEntity<CategoryDTO> insertCategory(@RequestBody CategoryDTO categoryDTO){
         categoryDTO = this.categoryService.saveCategory(categoryDTO);
         return new ResponseEntity<>(categoryDTO, HttpStatus.CREATED);
