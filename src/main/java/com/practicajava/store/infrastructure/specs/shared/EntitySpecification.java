@@ -1,9 +1,10 @@
 package com.practicajava.store.infrastructure.specs.shared;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public abstract class EntitySpecification<T> {
 
     protected List<SearchCriteria> criteria;
 
-    public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+    public Predicate toPredicate (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 
         //create a new predicate list
         List<Predicate> predicates = new ArrayList<>();
@@ -65,7 +66,6 @@ public abstract class EntitySpecification<T> {
                 predicates.add(builder.not(root.get(criteria.getKey())).in(criteria.getValue()));
             }
         }
-
         return builder.and(predicates.toArray(new Predicate[0]));
     }
 

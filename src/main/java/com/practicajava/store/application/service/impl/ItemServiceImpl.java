@@ -6,6 +6,8 @@ import com.practicajava.store.application.service.ItemService;
 import com.practicajava.store.domain.entity.Item;
 import com.practicajava.store.domain.persistence.ItemPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,5 +50,11 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void deleteItem(Long itemId) {
         this.persistence.deleteItem(itemId);
+    }
+
+    @Override
+    public List<ItemDTO> getItemsByCriteriaStringPaged(Pageable pageable, String filter) {
+        Page<Item> itemPage = this.persistence.findAll(pageable,filter);
+        return this.mapper.toDto(itemPage.getContent());
     }
 }
