@@ -2,7 +2,6 @@ package com.practicajava.store.infrastructure.persistence;
 
 
 import com.practicajava.store.domain.entity.Item;
-import com.practicajava.store.infrastructure.specs.ItemSpecification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
