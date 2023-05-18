@@ -20,7 +20,7 @@ public class ItemRestController {
     }
 
     @CrossOrigin
-    @GetMapping(value = "/items", produces = "application/json")
+    @GetMapping(value = "/items-old", produces = "application/json")
     ResponseEntity<List<ItemDTO>> getAllItems(){
         List<ItemDTO> items = itemService.getAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);

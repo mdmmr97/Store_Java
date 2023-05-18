@@ -5,6 +5,7 @@ import com.practicajava.store.domain.persistence.ItemPersistence;
 import com.practicajava.store.infrastructure.specs.ItemSpecification;
 import com.practicajava.store.infrastructure.specs.shared.SearchCriteriaHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
