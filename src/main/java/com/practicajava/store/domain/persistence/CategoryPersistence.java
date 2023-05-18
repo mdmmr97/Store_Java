@@ -10,4 +10,5 @@ public interface CategoryPersistence {
     Optional<Category> getCategoryById(Long categoryId);
     Category saveCategory(Category category);
     void deleteCategory(Long categoryId);
+    List<Category> getAllCategoriesByName(String partialName);
 }

@@ -21,8 +21,14 @@ public class CategoryRestController {
 
     @CrossOrigin
     @GetMapping(value = "/categories", produces = "application/json")
-    ResponseEntity<List<CategoryDTO>> getAllCategories(){
-        List<CategoryDTO> categories = this.categoryService.getAllCategories();
+    ResponseEntity<List<CategoryDTO>> getAllCategories(@RequestParam(name = "partialName", required = false) String partialName){
+        List<CategoryDTO> categories;
+        if(partialName==null){
+            categories = this.categoryService.getAllCategories();
+        } else {
+            categories = this.categoryService.getAllCategoriesByName(partialName);
+        }
+
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
